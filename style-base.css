@@ -1,0 +1,447 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unbounded&display=swap");
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Unbounded", sans-serif;
+}
+
+.logo-text {
+    font-family: "Unbounded", cursive;
+}
+
+/* Хедер */
+.header {
+    background-color: #000000;
+    padding: 20px 0;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+.header-top {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 20px;
+}
+
+/* Логотип */
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    height: 100px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 50px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+/* Навигация */
+.navigation {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 1px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.navigation.open {
+    display: flex !important;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0 0;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 27px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.nav-link:hover {
+    color: #00ff6a;
+}
+
+/* Иконки контактов */
+.contact-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    gap: 62px;
+    flex-wrap: wrap;
+    row-gap: 28px;
+}
+
+.contact-icon {
+    color: #00ff6a;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 26px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.contact-icon:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.icon-divider {
+    width: 1px;
+    height: 70px;
+    background: rgba(0, 255, 0, 0.6);
+    margin: 0;
+}
+
+.footer {
+    background-color: #000000;
+    border-top: 1px solid rgba(0, 255, 0, 0.2);
+    height: 5px;
+    margin-bottom: 0;
+}
+
+.gallery-carousel {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.carousel-viewport {
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+.carousel-track-wrapper {
+    overflow: hidden;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    min-height: clamp(380px, 80vh, 860px);
+}
+
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    min-height: clamp(380px, 80vh, 860px);
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.carousel-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 40%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.carousel-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: min(90%, 900px);
+    padding: 0 32px;
+    color: #ffffff;
+    text-transform: uppercase;
+    gap: 18px;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.carousel-content h2 {
+    font-size: 55px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.carousel-content p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-transform: none;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    position: absolute;
+    bottom: clamp(18px, 5vh, 48px);
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    width: auto;
+    z-index: 3;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #00ff6a;
+    background: transparent;
+    cursor: default;
+    pointer-events: none;
+    transition: background-color 0.2s ease;
+}
+
+.carousel-dot.active,
+.carousel-dot:hover {
+    background-color: #00ff6a;
+}
+
+.carousel-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.carousel-slide.flash::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 65%);
+    opacity: 0;
+    animation: carouselFlash 0.48s ease;
+    pointer-events: none;
+}
+
+@keyframes carouselFlash {
+    0% {
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+body:not(.js-enabled) .carousel-slide {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cta-wrapper {
+    padding: 32px 0 80px;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 48px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7cff72 0%, #57f46a 100%);
+    color: #051407;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 25px rgba(87, 244, 106, 0.28);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 30px rgba(87, 244, 106, 0.35);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 20px rgba(87, 244, 106, 0.3);
+}
+
+/* Cookie banner */
+.cookie-banner {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 40px);
+    width: clamp(280px, 90vw, 1024px);
+    background: rgba(30, 31, 37, 0.95);
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    padding: 20px 28px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.cookie-banner--visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+}
+
+.cookie-banner__content {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+}
+
+.cookie-banner__text {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.cookie-banner__actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.cookie-banner__btn {
+    border: none;
+    border-radius: 999px;
+    padding: 10px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.cookie-banner__btn--accept {
+    background: #ffbd59;
+    color: #1e1f25;
+}
+
+.cookie-banner__btn--accept:hover {
+    background: #ffd27f;
+}
+
+.cookie-banner__link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .cookie-banner {
+        padding: 16px 20px;
+        bottom: 16px;
+    }
+
+    .cookie-banner__content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cookie-banner__actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
+

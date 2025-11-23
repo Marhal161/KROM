@@ -1,0 +1,447 @@
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .header-top {
+        padding: 0 32px;
+        gap: 48px;
+    }
+    .logo-image {
+        height: 80px;
+    }
+    .logo-text {
+        font-size: 42px;
+    }
+    .navigation {
+        gap: 28px;
+    }
+    .nav-link {
+        font-size: 22px;
+    }
+    .contact-icons {
+        padding: 0 32px;
+        gap: 48px;
+        row-gap: 24px;
+    }
+    .contact-icon img {
+        width: 56px;
+        height: 56px;
+    }
+    .carousel-content {
+        width: min(92%, 640px);
+        padding: 0 28px;
+    }
+    .carousel-content h2 {
+        font-size: clamp(42px, 4.6vw, 50px);
+    }
+    .services {
+        padding: 40px 0 80px;
+    }
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+    .service-image img {
+        height: 200px;
+    }
+    .service-body {
+        padding: 26px 22px 30px;
+    }
+    .services-cta-button {
+        font-size: 18px;
+        padding: 14px 40px;
+    }
+    .choose-us {
+        padding: 40px 0 80px;
+    }
+    .choose-us-body {
+        gap: 40px;
+    }
+    .choose-us-content h3 {
+        font-size: 18px;
+    }
+    .choose-us-content p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-top {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+    .nav-link {
+        font-size: 20px;
+    }
+    .contact-icons {
+        gap: 36px;
+        row-gap: 20px;
+    }
+    .icon-divider {
+        display: none;
+    }
+    .carousel-content {
+        width: min(94%, 600px);
+        padding: 0 24px;
+    }
+    .carousel-content h2 {
+        font-size: clamp(36px, 5.4vw, 44px);
+    }
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 24px;
+    }
+    .service-body h3 {
+        font-size: 18px;
+    }
+    .service-desc {
+        font-size: 14px;
+    }
+    .choose-us-body {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+    .choose-us-media {
+        width: 100%;
+    }
+    .choose-us-features {
+        width: 100%;
+    }
+    .choose-us-item {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24px;
+        gap: 16px;
+    }
+    .logo-image {
+        height: 64px;
+    }
+    .logo-text {
+        font-size: 36px;
+    }
+    .navigation {
+        display: none;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .navigation.open {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(16px);
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        padding: 32px;
+        z-index: 2000;
+    }
+    .contact-icons {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 24px;
+        gap: 0;
+        row-gap: 32px;
+        width: 100%;
+    }
+    .contact-icon {
+        width: 100%;
+        max-width: 340px;
+        padding: 16px 0;
+    }
+    .contact-icon img {
+        width: 48px;
+        height: 48px;
+    }
+    .icon-divider {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 255, 0, 0.4);
+    }
+    .carousel-content {
+        width: min(90%, 520px);
+        padding: 0 24px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .carousel-content h2 {
+        font-size: clamp(30px, 6.2vw, 40px);
+    }
+    .carousel-content p {
+        font-size: clamp(16px, 3.2vw, 18px);
+    }
+    .cta-wrapper {
+        padding: 28px 0 64px;
+    }
+    .cta-button {
+        width: 80%;
+        max-width: 320px;
+        padding: 14px 32px;
+        font-size: 18px;
+    }
+    .services-grid {
+        display: flex;
+        gap: 20px;
+        padding: 0 20px 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    .services-grid::-webkit-scrollbar {
+        height: 0;
+    }
+    .service-card {
+        flex: 0 0 82%;
+        max-width: 82%;
+        scroll-snap-align: center;
+    }
+    .services-header h2 {
+        font-size: 36px;
+    }
+    .services-cta-button {
+        width: 80%;
+        max-width: 320px;
+    }
+    .choose-us-header h2 {
+        font-size: 34px;
+    }
+    .choose-us-body {
+        padding: 0 20px;
+        gap: 28px;
+    }
+    .choose-us-item {
+        padding: 20px 22px;
+    }
+    .reviews-header h2 {
+        font-size: 34px;
+    }
+    .reviews-grid {
+        padding: 48px 20px 64px;
+    }
+    .reviews-grid > div {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .review-item {
+        flex: none;
+    }
+    .review-item img {
+        height: 520px;
+        width: auto;
+    }
+    .faq {
+        padding: 60px 0 72px;
+    }
+    .faq-container {
+        padding: 0 20px;
+    }
+    .faq-item {
+        margin-bottom: 28px;
+    }
+    .faq-line {
+        gap: 14px;
+    }
+    .faq-number {
+        font-size: 26px;
+        min-width: 30px;
+    }
+    .faq-line h3 {
+        font-size: 24px;
+    }
+    .faq-item p {
+        padding-left: 44px;
+        font-size: 15px;
+    }
+    .policy-body {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .policy-text {
+        text-align: center;
+    }
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+    .contact-form {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 540px) {
+    .nav-link {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+    .navigation {
+        gap: 12px;
+    }
+    .contact-icons {
+        padding: 0 16px;
+        row-gap: 28px;
+    }
+    .contact-icon {
+        max-width: 100%;
+        padding: 14px 0;
+    }
+    .carousel-content {
+        width: min(96%, 420px);
+        padding: 0 20px;
+        gap: 12px;
+        align-items: flex-start;
+        text-align: left;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .carousel-content h2 {
+        font-size: clamp(26px, 7.2vw, 34px);
+    }
+    .carousel-content p {
+        font-size: clamp(14px, 3.8vw, 18px);
+    }
+    .gallery-carousel {
+        margin: 40px auto 12px;
+        padding: 0;
+        gap: 0;
+    }
+    .carousel-viewport {
+        display: block;
+    }
+    .carousel-dots {
+        bottom: clamp(16px, 6vh, 32px);
+    }
+    .cta-wrapper {
+        padding: 24px 0 48px;
+    }
+    .cta-button {
+        width: 88%;
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+    .services {
+        padding: 36px 0 60px;
+    }
+    .services-header h2 {
+        font-size: 30px;
+    }
+    .service-image img {
+        height: 180px;
+    }
+    .service-body {
+        padding: 24px 20px 28px;
+    }
+    .service-card {
+        flex: 0 0 88%;
+        max-width: 88%;
+    }
+    .services-cta-button {
+        width: 88%;
+        padding: 12px 28px;
+        font-size: 16px;
+    }
+    .choose-us {
+        padding: 32px 0 56px;
+    }
+    .choose-us-header h2 {
+        font-size: 28px;
+    }
+    .choose-us-accent {
+        width: 110px;
+    }
+    .choose-us-item {
+        grid-template-columns: 48px 1fr;
+    }
+    .choose-us-item strong {
+        font-size: 17px;
+    }
+    .choose-us-item p {
+        font-size: 14px;
+    }
+    .reviews {
+        padding: 40px 0 64px;
+    }
+    .reviews-header h2 {
+        font-size: 28px;
+    }
+    .reviews-accent {
+        width: 110px;
+    }
+    .reviews-grid {
+        padding: 30px 16px 46px;
+    }
+    .reviews-grid > div {
+        gap: 16px;
+    }
+    .review-item img {
+        height: 450px;
+        width: auto;
+    }
+    .faq {
+        padding: 44px 0 56px;
+    }
+    .faq-container {
+        padding: 0 12px;
+    }
+    .faq-item {
+        margin-bottom: 24px;
+    }
+    .faq-line {
+        gap: 10px;
+    }
+    .faq-number {
+        font-size: 20px;
+        min-width: 26px;
+    }
+    .faq-line h3 {
+        font-size: 18px;
+    }
+    .faq-item p {
+        padding-left: 32px;
+        font-size: 14px;
+    }
+    .policy-section {
+        padding: 48px 0;
+    }
+    .policy-body {
+        padding: 0 18px;
+    }
+    .policy-header h2 {
+        font-size: 24px;
+        letter-spacing: 1.2px;
+    }
+    .policy-accent {
+        width: 180px;
+    }
+    .policy-meta {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .contact-section {
+        padding: 36px 0 48px;
+    }
+    .contact-wrapper {
+        padding: 0 12px;
+        gap: 32px;
+    }
+    .contact-info h2 {
+        font-size: 28px;
+    }
+    .contact-form {
+        padding: 24px;
+    }
+}
+

@@ -1,0 +1,23 @@
+# ВАЖНО: Конфиденциальные данные
+smtp_config.php
+
+# Тестовые файлы
+test_mail.php
+test_mail_smtp.php
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Инструкции (можно удалить после настройки)
+ИНСТРУКЦИЯ_ПО_НАСТРОЙКЕ_ПОЧТЫ.txt
+README_QUICK_START.md
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+

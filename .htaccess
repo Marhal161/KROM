@@ -1,0 +1,27 @@
+# Защита конфигурационных файлов от прямого доступа
+<FilesMatch "^(smtp_config\.php|PHPMailer\.php)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Дополнительная защита для всех конфигурационных файлов
+<Files "smtp_config.php">
+    Require all denied
+</Files>
+
+# Запретить доступ к файлам с резервными копиями
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Запретить просмотр директорий
+Options -Indexes
+
+# Защита от XSS
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+

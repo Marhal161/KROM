@@ -1,17 +1,47 @@
 <?php
-$contactStatus = null;
+// Подключаем конфигурацию SMTP и библиотеку PHPMailer
+define('SMTP_CONFIG_LOADED', true); // Разрешаем загрузку smtp_config.php
+require_once __DIR__ . '/smtp_config.php';
+require_once __DIR__ . '/PHPMailer.php';
+
+// Стартуем сессию для flash-сообщений и защиты от повторной отправки по F5
+if (function_exists('session_status') && session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Статус формы (успех/ошибка), в т.ч. после redirect
+$contactStatus = $_SESSION['contactStatus'] ?? null;
+if (isset($_SESSION['contactStatus'])) {
+    unset($_SESSION['contactStatus']);
+}
+
+// Данные формы для повторного вывода при ошибке
 $contactData = [
     'name' => '',
     'phone' => '',
     'email' => '',
-    'message' => ''
+    'message' => '',
+    'consent' => false,
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
+    // Поле-ловушка от ботов (скрытое в верстке)
+    $honeypot = trim($_POST['company'] ?? '');
+    if ($honeypot !== '') {
+        // Считаем спамом: не отправляем письмо, но имитируем успешный сценарий
+        $_SESSION['contactStatus'] = [
+            'type' => 'success',
+            'text' => 'Сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.',
+        ];
+        header('Location: ' . strtok($_SERVER['REQUEST_URI'], '?'));
+        exit;
+    }
+
     $contactData['name'] = trim($_POST['name'] ?? '');
     $contactData['phone'] = trim($_POST['phone'] ?? '');
     $contactData['email'] = trim($_POST['email'] ?? '');
     $contactData['message'] = trim($_POST['message'] ?? '');
+    $contactData['consent'] = isset($_POST['consent']) && $_POST['consent'] === '1';
 
     if (
         $contactData['name'] === '' ||
@@ -19,22 +49,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
         $contactData['email'] === '' ||
         $contactData['message'] === ''
     ) {
-        $contactStatus = ['type' => 'error', 'text' => 'Пожалуйста, заполните все поля.'];
+        $contactStatus = ['type' => 'error', 'text' => 'Пожалуйста, заполните все обязательные поля.'];
+    } elseif (!$contactData['consent']) {
+        $contactStatus = ['type' => 'error', 'text' => 'Поставьте галочку согласия на обработку персональных данных.'];
     } elseif (!filter_var($contactData['email'], FILTER_VALIDATE_EMAIL)) {
         $contactStatus = ['type' => 'error', 'text' => 'Укажите корректный e-mail.'];
     } else {
-        $to = 'info@krommarketing.ru';
+        // Формируем тело письма
         $subject = 'Новая заявка с сайта KROM';
-        $body = "Имя: {$contactData['name']}\nТелефон: {$contactData['phone']}\nEmail: {$contactData['email']}\n\nКомментарий:\n{$contactData['message']}";
-        $headers = "From: noreply@krom.local\r\n";
-        $headers .= "Reply-To: {$contactData['email']}\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $body = "Имя: {$contactData['name']}\n";
+        $body .= "Телефон: {$contactData['phone']}\n";
+        $body .= "Email: {$contactData['email']}\n\n";
+        $body .= "Комментарий:\n{$contactData['message']}\n\n";
+        $body .= "---\n";
+        $body .= "Отправлено: " . date('d.m.Y H:i:s') . "\n";
+        $body .= "IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'Неизвестен');
 
-        if (@mail($to, $subject, $body, $headers)) {
-            $contactStatus = ['type' => 'success', 'text' => 'Сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.'];
-            $contactData = ['name' => '', 'phone' => '', 'email' => '', 'message' => ''];
-        } else {
-            $contactStatus = ['type' => 'error', 'text' => 'Не удалось отправить сообщение. Попробуйте ещё раз позже.'];
+        // Создаем экземпляр PHPMailer
+        $mail = new PHPMailer();
+        
+        try {
+            // Настройки SMTP
+            $mail->isSMTP();
+            $mail->Host = SMTP_HOST;
+            $mail->Port = SMTP_PORT;
+            $mail->SMTPSecure = SMTP_SECURE;
+            $mail->SMTPAuth = SMTP_AUTH;
+            $mail->Username = SMTP_USERNAME;
+            $mail->Password = SMTP_PASSWORD;
+            $mail->CharSet = 'UTF-8';
+
+            // Отправитель и получатель
+            $mail->From = SMTP_FROM_EMAIL;
+            $mail->FromName = SMTP_FROM_NAME;
+            $mail->addAddress(MAIL_TO);
+            $mail->addReplyTo($contactData['email'], $contactData['name']);
+
+            // Содержимое письма
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+
+            // Отправляем
+            if ($mail->send()) {
+                // Логируем заявку в файл
+                $logDir = __DIR__ . '/logs';
+                if (!is_dir($logDir)) {
+                    @mkdir($logDir, 0755, true);
+                }
+                $logFile = $logDir . '/contacts.log';
+                $logEntry = "========================\n" . date('Y-m-d H:i:s') . "\n" . $body . "\n\n";
+                @file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX);
+
+                // Flash-сообщение об успехе и redirect (PRG), чтобы не дублировать отправку по F5
+                $_SESSION['contactStatus'] = [
+                    'type' => 'success',
+                    'text' => 'Сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.',
+                ];
+                header('Location: ' . strtok($_SERVER['REQUEST_URI'], '?'));
+                exit;
+            } else {
+                $contactStatus = ['type' => 'error', 'text' => 'Ошибка отправки: ' . $mail->ErrorInfo];
+            }
+        } catch (Exception $e) {
+            $contactStatus = ['type' => 'error', 'text' => 'Не удалось отправить сообщение. Попробуйте позже.'];
         }
     }
 }
@@ -44,20 +121,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Маркетинговое агентство KROM — сайты, пакетные услуги, реклама</title>
-     <meta name="description" content="KROM — маркетинговое агентство полного цикла. Разрабатываем сайты и веб-приложения, запускаем пакетные услуги, делаем Telegram ADS, наружную рекламу и e-mail/SMS рассылки.">
+     <link rel="icon" href="media/logo_icon.png" type="image/png">
+     <title>KROM Marketing, маркетинговое агентство в Москве: сайты и реклама</title>
+     <meta name="description" content="KROM Marketing, агентство полного цикла в Москве. Разработка сайтов и веб-приложений, пакетные услуги, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку, ответим в день обращения.">
      <meta name="keywords" content="KROM маркетинг, разработка сайта, пакетные услуги, SMS рассылка, Telegram ADS, наружная реклама, маркетинговое агентство Москва">
      <meta name="robots" content="index, follow">
      <link rel="canonical" href="https://krommarketing.ru/">
      <meta property="og:type" content="website">
-     <meta property="og:title" content="KROM — маркетинговое агентство полного цикла">
-     <meta property="og:description" content="Создаём сайты, запускаем пакетные услуги, продвигаем бизнес в соцсетях и офлайн. Свяжитесь с нами и получите предложение под ваши задачи.">
+     <meta property="og:title" content="KROM Marketing, маркетинговое агентство в Москве: сайты и реклама">
+     <meta property="og:description" content="KROM Marketing, агентство полного цикла в Москве. Разработка сайтов и веб-приложений, пакетные услуги, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку, ответим в день обращения.">
      <meta property="og:url" content="https://krommarketing.ru/">
      <meta property="og:image" content="https://krommarketing.ru/media/og-cover.jpg">
      <meta property="og:site_name" content="KROM Marketing">
      <meta name="twitter:card" content="summary_large_image">
-     <meta name="twitter:title" content="KROM — маркетинговое агентство полного цикла">
-     <meta name="twitter:description" content="Разработка сайтов, пакетные услуги, Telegram и наружная реклама. Работаем по всей России.">
+     <meta name="twitter:title" content="KROM Marketing, маркетинговое агентство в Москве: сайты и реклама">
+     <meta name="twitter:description" content="KROM Marketing, агентство полного цикла в Москве. Разработка сайтов и веб-приложений, пакетные услуги, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку, ответим в день обращения.">
      <meta name="twitter:image" content="https://krommarketing.ru/media/og-cover.jpg">
      <link rel="stylesheet" href="style-base.css">
      <link rel="stylesheet" href="style-sections.css">
@@ -71,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
          "logo": "https://krommarketing.ru/media/logo_krom_gif.gif",
          "sameAs": [
              "https://t.me/krommarketing",
-             "https://vk.com/krom",
+             "https://vk.ru/krommarketing",
              "https://wa.me/79152564826"
          ],
          "contactPoint": {
@@ -87,7 +165,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
              "@type": "PostalAddress",
              "addressCountry": "RU",
              "addressLocality": "Москва",
-             "streetAddress": "ул. Открытое, д. 24, корп. 5Б"
+             "postalCode": "107143",
+             "streetAddress": "г. Москва, ш. Открытое, д. 24, корп. 5В, кв. 14"
          }
      }
      </script>
@@ -134,6 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
     </header>
 
     <section class="gallery-carousel" aria-label="Фотогалерея">
+        <h1>Маркетинговое агентство KROM Marketing в Москве</h1>
         <div class="carousel-viewport">
             <div class="carousel-track-wrapper">
                 <ul class="carousel-track">
@@ -169,7 +249,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
     </section>
 
     <div class="cta-wrapper">
-        <a href="tel:+1234567890" class="cta-button" aria-label="Позвонить в КРОМ">Позвонить</a>
+        <a href="tel:+79152564826" class="cta-button" aria-label="Позвонить в КРОМ">Позвонить</a>
     </div>
 
     <section id="services" class="services">
@@ -370,6 +450,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
 
             <form class="contact-form" method="post">
                 <input type="hidden" name="contact_form" value="1">
+                <!-- Поле-ловушка для защиты от спама (боты заполнят, пользователи не увидят) -->
+                <div class="contact-honeypot" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;">
+                    <label>
+                        Ваш сайт
+                        <input type="text" name="company" autocomplete="off" tabindex="-1">
+                    </label>
+                </div>
                 <div class="contact-form-title">Представьтесь, пожалуйста</div>
 
                 <?php if ($contactStatus): ?>
@@ -398,6 +485,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                     <textarea name="message" rows="3" required><?php echo htmlspecialchars($contactData['message']); ?></textarea>
                 </label>
 
+                <label class="contact-field contact-consent">
+                    <input
+                        type="checkbox"
+                        name="consent"
+                        value="1"
+                        required
+                        <?php echo $contactData['consent'] ? 'checked' : ''; ?>
+                    >
+                    <span>
+                        Я согласен(а) на обработку своих персональных данных в соответствии
+                        с Федеральным законом №152-ФЗ и
+                        <a href="#policy">Политикой обработки и защиты персональных данных</a>.
+                    </span>
+                </label>
+
                 <button type="submit" class="contact-submit">Отправить</button>
             </form>
         </div>
@@ -414,7 +516,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
             </div>
             <div class="policy-text">
                 <p>Настоящая Политика разработана в соответствии с Федеральным законом от 27.07.2006 №152-ФЗ «О персональных данных» и регулирует порядок обработки и защиты персональных данных, осуществляемых Обществом с ограниченной ответственностью «КРОМ Маркетинг». Она описывает цели обработки, категории данных, меры безопасности и права пользователей.</p>
-                <p>ИНН 9718210767, юридический адрес: 107143, г. Москва, ул. Открытое, д. 24, корп. 5Б, кв. 14, сайт: www.krommarketing.ru, e-mail: info@krommarketing.ru.</p>
+                <p>ИНН 9718271067, юридический адрес: 107143, г. Москва, ш. Открытое, д. 24, корп. 5В, кв. 14, сайт: www.krommarketing.ru, e-mail: info@krommarketing.ru.</p>
                 <a href="media/policy.pdf" class="policy-btn">Читать</a>
             </div>
         </div>
@@ -422,10 +524,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
             <div class="policy-meta">
                 <p>© 2025 All rights reserved.</p>
                 <div class="policy-socials">
-                    <a href="#" aria-label="VK">vk</a>
-                    <a href="#" aria-label="Telegram">tg</a>
-                    <a href="#" aria-label="WhatsApp">wa</a>
-                    <a href="#" aria-label="YouTube">yt</a>
+                    <a href="https://vk.ru/krommarketing" aria-label="VK">vk</a>
+                    <a href="https://t.me/krommarketing" aria-label="Telegram">tg</a>
+                    <a href="https://wa.me/79152564826 " aria-label="WhatsApp">wa</a>
+                    <a href="https://www.youtube.com/channel/UC1jp1VNG1wv8Z4ym2JAeiTw" aria-label="YouTube">yt</a>
                 </div>
                 <div class="policy-made">
                     <img src="media/logo.jpg" alt="Made by KROM" loading="lazy">

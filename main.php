@@ -117,73 +117,87 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
 }
 ?>
 <!DOCTYPE html>
- <html lang="ru">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" href="media/logo_icon.png" type="image/png">
-     <title>KROM Marketing, маркетинговое агентство в Москве: сайты и реклама</title>
-     <meta name="description" content="KROM Marketing, агентство полного цикла в Москве. Разработка сайтов и веб-приложений, пакетные услуги, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку, ответим в день обращения.">
-     <meta name="keywords" content="KROM маркетинг, разработка сайта, пакетные услуги, SMS рассылка, Telegram ADS, наружная реклама, маркетинговое агентство Москва">
-     <meta name="robots" content="index, follow">
-     <link rel="canonical" href="https://krommarketing.ru/">
-     <meta property="og:type" content="website">
-     <meta property="og:title" content="KROM Marketing, маркетинговое агентство в Москве: сайты и реклама">
-     <meta property="og:description" content="KROM Marketing, агентство полного цикла в Москве. Разработка сайтов и веб-приложений, пакетные услуги, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку, ответим в день обращения.">
-     <meta property="og:url" content="https://krommarketing.ru/">
-     <meta property="og:image" content="https://krommarketing.ru/media/og-cover.jpg">
-     <meta property="og:site_name" content="KROM Marketing">
-     <meta name="twitter:card" content="summary_large_image">
-     <meta name="twitter:title" content="KROM Marketing, маркетинговое агентство в Москве: сайты и реклама">
-     <meta name="twitter:description" content="KROM Marketing, агентство полного цикла в Москве. Разработка сайтов и веб-приложений, пакетные услуги, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку, ответим в день обращения.">
-     <meta name="twitter:image" content="https://krommarketing.ru/media/og-cover.jpg">
-     <link rel="stylesheet" href="style-base.css">
-     <link rel="stylesheet" href="style-sections.css">
-     <link rel="stylesheet" href="style-responsive.css">
-     <script type="application/ld+json">
-     {
-         "@context": "https://schema.org",
-         "@type": "Organization",
-         "name": "KROM Marketing",
-         "url": "https://krommarketing.ru/",
-         "logo": "https://krommarketing.ru/media/logo_krom_gif.gif",
-         "sameAs": [
-             "https://t.me/krommarketing",
-             "https://vk.ru/krommarketing",
-             "https://wa.me/79152564826"
-         ],
-         "contactPoint": {
-             "@type": "ContactPoint",
-             "telephone": "+7 915 256-48-26",
-             "contactType": "sales",
-             "areaServed": "RU",
-             "availableLanguage": [
-                 "Russian"
-             ]
-         },
-         "address": {
-             "@type": "PostalAddress",
-             "addressCountry": "RU",
-             "addressLocality": "Москва",
-             "postalCode": "107143",
-             "streetAddress": "г. Москва, ш. Открытое, д. 24, корп. 5В, кв. 14"
-         }
-     }
-     </script>
- </head>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="media/logo_icon.png" type="image/png" />
+
+  <!-- SEO -->
+  <title>KROM Marketing — маркетинговое и рекламное агентство в Москве: сайты и реклама</title>
+  <meta name="description" content="KROM Marketing — маркетинговое и рекламное агентство в Москве. Разработка сайтов и веб-приложений, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку — ответим в день обращения." />
+  <meta name="keywords" content="маркетинговое агентство, рекламное агентство, digital агентство, услуги маркетинга, рекламные услуги, комплексный маркетинг, продвижение бизнеса, лидогенерация, интернет реклама, Telegram Ads, реклама у блогеров, SMS рассылка, email маркетинг, наружная реклама, разработка сайтов, веб-приложения" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://krommarketing.ru/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="KROM Marketing" />
+  <meta property="og:url" content="https://krommarketing.ru/" />
+  <meta property="og:title" content="KROM Marketing — маркетинговое и рекламное агентство в Москве" />
+  <meta property="og:description" content="Разработка сайтов и веб-приложений, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку — ответим в день обращения." />
+  <meta property="og:image" content="https://krommarketing.ru/media/og-cover.jpg" />
+  <meta property="og:image:alt" content="KROM Marketing — агентство полного цикла" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KROM Marketing — маркетинговое и рекламное агентство в Москве" />
+  <meta name="twitter:description" content="Разработка сайтов, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку — ответим в день обращения." />
+  <meta name="twitter:image" content="https://krommarketing.ru/media/og-cover.jpg" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style-base.css" />
+  <link rel="stylesheet" href="style-sections.css" />
+  <link rel="stylesheet" href="style-responsive.css" />
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KROM Marketing",
+    "url": "https://krommarketing.ru/",
+    "logo": "https://krommarketing.ru/media/logo_krom_gif.gif",
+    "sameAs": [
+      "https://t.me/krommarketing",
+      "https://vk.ru/krommarketing",
+      "https://wa.me/79152564826",
+      "https://www.youtube.com/channel/UC1jp1VNG1wv8Z4ym2JAeiTw"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+7 915 256-48-26",
+      "contactType": "sales",
+      "areaServed": "RU",
+      "availableLanguage": ["Russian"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "RU",
+      "addressLocality": "Москва",
+      "postalCode": "107143",
+      "streetAddress": "г. Москва, ш. Открытое, д. 24, корп. 5В, кв. 14"
+    }
+  }
+  </script>
+</head>
  <body>
     <header class="header">
         <div class="header-top">
-            <div class="logo-section">
+            <a href="/" class="logo-section">
                 <img src="media/logo_krom_gif.gif" alt="KROM Logo" class="logo-image">
                 <span class="logo-text">КРОМ</span>
-            </div>
+            </a>
 
             <nav class="navigation" aria-label="Основная навигация">
-                <a href="#choose" class="nav-link">О НАС</a>
-                <a href="#services" class="nav-link">УСЛУГИ</a>
-                <a href="#reviews" class="nav-link">ОТЗЫВЫ</a>
-                <a href="#contacts" class="nav-link">КОНТАКТЫ</a>
+                <a href="#choose" class="nav-link">О нас</a>
+                <a href="#services" class="nav-link">Услуги</a>
+                <a href="#reviews" class="nav-link">Отзывы</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
             </nav>
 
             <button class="menu-toggle" type="button" aria-label="Открыть меню">
@@ -213,7 +227,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
     </header>
 
     <section class="gallery-carousel" aria-label="Фотогалерея">
-        <h1>Маркетинговое агентство KROM Marketing в Москве</h1>
+        <h1>Маркетинговое и рекламное агентство KROM Marketing в Москве</h1>
         <div class="carousel-viewport">
             <div class="carousel-track-wrapper">
                 <ul class="carousel-track">
@@ -482,7 +496,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
 
                 <label class="contact-field">
                     <span>Комментарий</span>
-                    <textarea name="message" rows="3" required><?php echo htmlspecialchars($contactData['message']); ?></textarea>
+                    <textarea name="message" rows="3" placeholder="Ваше сообщение"><?php echo htmlspecialchars($contactData['message']); ?></textarea>
                 </label>
 
                 <label class="contact-field contact-consent">
@@ -490,7 +504,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                         type="checkbox"
                         name="consent"
                         value="1"
-                        required
                         <?php echo $contactData['consent'] ? 'checked' : ''; ?>
                     >
                     <span>
@@ -522,15 +535,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
         </div>
         <div class="policy-footer">
             <div class="policy-meta">
-                <p>© 2025 All rights reserved.</p>
-                <div class="policy-socials">
-                    <a href="https://vk.ru/krommarketing" aria-label="VK">vk</a>
-                    <a href="https://t.me/krommarketing" aria-label="Telegram">tg</a>
-                    <a href="https://wa.me/79152564826 " aria-label="WhatsApp">wa</a>
-                    <a href="https://www.youtube.com/channel/UC1jp1VNG1wv8Z4ym2JAeiTw" aria-label="YouTube">yt</a>
+                <div class="footer-contacts">
+                    <p><strong>Контакты:</strong></p>
+                    <p>Телефон: <a href="tel:+79152564826">+7 915 256-48-26</a></p>
+                    <p>Email: <a href="mailto:info@krommarketing.ru">info@krommarketing.ru</a></p>
+                    <p>Адрес: 107143, г. Москва, ш. Открытое, д. 24, корп. 5В, кв. 14</p>
+                    <p>ИНН: 9718271067</p>
                 </div>
-                <div class="policy-made">
-                    <img src="media/logo.jpg" alt="Made by KROM" loading="lazy">
+                <div class="footer-links">
+                    <p><a href="#policy">Политика конфиденциальности</a></p>
+                    <p>© 2025 KROM Marketing. Все права защищены.</p>
+                </div>
+                <div class="policy-socials">
+                    <a href="https://vk.ru/krommarketing" aria-label="VK" target="_blank" rel="noopener">vk</a>
+                    <a href="https://t.me/krommarketing" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
+                    <a href="https://wa.me/79152564826" aria-label="WhatsApp" target="_blank" rel="noopener">wa</a>
+                    <a href="https://www.youtube.com/channel/UC1jp1VNG1wv8Z4ym2JAeiTw" aria-label="YouTube" target="_blank" rel="noopener">yt</a>
                 </div>
             </div>
         </div>
@@ -552,4 +572,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
      <script src="scripts.js"></script>
 </body>
 </html>
-

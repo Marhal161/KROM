@@ -11,16 +11,16 @@
 <body>
     <header class="header">
         <div class="header-top">
-            <div class="logo-section">
+            <a href="/" class="logo-section">
                 <img src="media/logo_krom_gif.gif" alt="KROM Logo" class="logo-image">
                 <span class="logo-text">КРОМ</span>
-            </div>
+            </a>
 
             <nav class="navigation" aria-label="Основная навигация">
-                <a href="main.php#choose" class="nav-link">О НАС</a>
-                <a href="main.php#services" class="nav-link">УСЛУГИ</a>
-                <a href="main.php#reviews" class="nav-link">ОТЗЫВЫ</a>
-                <a href="main.php#contacts" class="nav-link">КОНТАКТЫ</a>
+                <a href="/#choose" class="nav-link">О нас</a>
+                <a href="/#services" class="nav-link">Услуги</a>
+                <a href="/#reviews" class="nav-link">Отзывы</a>
+                <a href="/#contacts" class="nav-link">Контакты</a>
             </nav>
 
             <button class="menu-toggle" type="button" aria-label="Открыть меню">
@@ -83,7 +83,7 @@
                             <li>ПРОХОЖДЕНИЕ МОДЕРАЦИИ</li>
                             <li>БЮДЖЕТ ВХОДИТ В СТОИМОСТЬ</li>
                         </ul>
-                        <a href="main.php#contacts" class="service-btn">Выбрать</a>
+                        <a href="/#contacts" class="service-btn">Выбрать</a>
                     </div>
                 </article>
 
@@ -107,7 +107,7 @@
                             <li>ПРОХОЖДЕНИЕ МОДЕРАЦИИ</li>
                             <li>БЮДЖЕТ ВХОДИТ В СТОИМОСТЬ</li>
                         </ul>
-                        <a href="main.php#contacts" class="service-btn">Выбрать</a>
+                        <a href="/#contacts" class="service-btn">Выбрать</a>
                     </div>
                 </article>
 
@@ -132,13 +132,13 @@
                             <li>ПОДБОР АУДИТОРИИ</li>
                             <li>БЮДЖЕТ ВХОДИТ В СТОИМОСТЬ</li>
                         </ul>
-                        <a href="main.php#contacts" class="service-btn">Выбрать</a>
+                        <a href="/#contacts" class="service-btn">Выбрать</a>
                     </div>
                 </article>
 
                 <article class="service-card">
                     <div class="service-image">
-                        <img src="media/tg.jpg" alt="Пост у блогера в TТ" loading="lazy">
+                        <img src="media/tg.jpg" alt="Пост у блогера в ТГ" loading="lazy">
                     </div>
                     <div class="service-body">
                         <div class="service-icon">
@@ -155,7 +155,7 @@
                             <li>ПОДБОР АУДИТОРИИ</li>
                             <li>БЮДЖЕТ ВХОДИТ В СТОИМОСТЬ</li>
                         </ul>
-                        <a href="main.php#contacts" class="service-btn">Выбрать</a>
+                        <a href="/#contacts" class="service-btn">Выбрать</a>
                     </div>
                 </article>
 
@@ -179,7 +179,7 @@
                             <li>ПОДБОР АУДИТОРИИ</li>
                             <li>БЮДЖЕТ ВХОДИТ В СТОИМОСТЬ</li>
                         </ul>
-                        <a href="main.php#contacts" class="service-btn">Выбрать</a>
+                        <a href="/#contacts" class="service-btn">Выбрать</a>
                     </div>
                 </article>
 
@@ -204,18 +204,40 @@
                             <li>ТЕСТЫ, ОПТИМИЗАЦИЯ</li>
                             <li>РОСТ ЗАПОМИНАЕМОСТИ И РЕАЛЬНЫХ ЛИДОВ</li>
                         </ul>
-                        <a href="main.php#contacts" class="service-btn">Выбрать</a>
+                        <a href="/#contacts" class="service-btn">Выбрать</a>
                     </div>
                 </article>
             </div>
 
             <div class="services-cta">
-                <a href="main.php#contacts" class="services-cta-button">Выбрать услугу</a>
+                <a href="/#contacts" class="services-cta-button">Выбрать услугу</a>
             </div>
         </section>
     </main>
 
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <div class="policy-footer">
+            <div class="policy-meta">
+                <div class="footer-contacts">
+                    <p><strong>Контакты:</strong></p>
+                    <p>Телефон: <a href="tel:+79152564826">+7 915 256-48-26</a></p>
+                    <p>Email: <a href="mailto:info@krommarketing.ru">info@krommarketing.ru</a></p>
+                    <p>Адрес: 107143, г. Москва, ш. Открытое, д. 24, корп. 5В, кв. 14</p>
+                    <p>ИНН: 9718271067</p>
+                </div>
+                <div class="footer-links">
+                    <p><a href="/#policy">Политика конфиденциальности</a></p>
+                    <p>© 2025 KROM Marketing. Все права защищены.</p>
+                </div>
+                <div class="policy-socials">
+                    <a href="https://vk.ru/krommarketing" aria-label="VK" target="_blank" rel="noopener">vk</a>
+                    <a href="https://t.me/krommarketing" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
+                    <a href="https://wa.me/79152564826" aria-label="WhatsApp" target="_blank" rel="noopener">wa</a>
+                    <a href="https://www.youtube.com/channel/UC1jp1VNG1wv8Z4ym2JAeiTw" aria-label="YouTube" target="_blank" rel="noopener">yt</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="scripts.js"></script>
 </body>

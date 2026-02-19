@@ -127,8 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
 
   <!-- SEO -->
   <title>KROM Marketing — маркетинговое и рекламное агентство в Москве: сайты и реклама</title>
-  <meta name="description" content="KROM Marketing — маркетинговое и рекламное агентство в Москве. Разработка сайтов и веб-приложений, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку — ответим в день обращения." />
-  <meta name="keywords" content="маркетинговое агентство, рекламное агентство, digital агентство, услуги маркетинга, рекламные услуги, комплексный маркетинг, продвижение бизнеса, лидогенерация, интернет реклама, Telegram Ads, реклама у блогеров, SMS рассылка, email маркетинг, наружная реклама, разработка сайтов, веб-приложения" />
+  <meta name="description" content="KROM Marketing — маркетинговое и рекламное агентство в Москве. Разработка сайтов и веб-приложений, Telegram Ads, наружная реклама, электронная почта и SMS. Оставьте заявку — ответим в день обращения." />
+  <meta name="keywords" content="маркетинговое агентство, рекламное агентство, цифровое агентство, услуги маркетинга, рекламные услуги, комплексный маркетинг, продвижение бизнеса, лидогенерация, интернет реклама, Telegram Ads, реклама у блогеров, SMS рассылка, электронная почта маркетинг, наружная реклама, разработка сайтов, веб-приложения" />
   <meta name="robots" content="index, follow" />
 
   <!-- Canonical -->
@@ -139,14 +139,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
   <meta property="og:site_name" content="KROM Marketing" />
   <meta property="og:url" content="https://krommarketing.ru/" />
   <meta property="og:title" content="KROM Marketing — маркетинговое и рекламное агентство в Москве" />
-  <meta property="og:description" content="Разработка сайтов и веб-приложений, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку — ответим в день обращения." />
+  <meta property="og:description" content="Разработка сайтов и веб-приложений, Telegram Ads, наружная реклама, электронная почта и SMS. Оставьте заявку — ответим в день обращения." />
   <meta property="og:image" content="https://krommarketing.ru/media/og-cover.jpg" />
   <meta property="og:image:alt" content="KROM Marketing — агентство полного цикла" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="KROM Marketing — маркетинговое и рекламное агентство в Москве" />
-  <meta name="twitter:description" content="Разработка сайтов, Telegram Ads, наружная реклама, email и SMS. Оставьте заявку — ответим в день обращения." />
+  <meta name="twitter:description" content="Разработка сайтов, Telegram Ads, наружная реклама, электронная почта и SMS. Оставьте заявку — ответим в день обращения." />
   <meta name="twitter:image" content="https://krommarketing.ru/media/og-cover.jpg" />
 
   <!-- Styles -->
@@ -241,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                     <li class="carousel-slide">
                         <div class="carousel-content">
                             <h2>Используем актуальные инструменты</h2>
-                            <p>Внедряем продающие креативы, рекламные кампании, виджеты</p>
+                            <p>Внедряем продающие рекламные материалы, рекламные кампании, виджеты</p>
                         </div>
                         <img src="media/2.jpg" alt="Фото 2" loading="lazy">
                     </li>
@@ -285,12 +285,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                         </svg>
                     </div>
                     <h3>Разработка веб-приложений</h3>
-                    <p class="service-desc">Быстрый MVP за 48 часов, адаптивный дизайн, интеграции с CRM, рекламными кабинетами и аналитикой.</p>
+                    <p class="service-desc">Быстрый минимальный продукт за 48 часов, адаптивный дизайн, интеграции с CRM, рекламными кабинетами и аналитикой.</p>
                     <div class="service-price">от 99 990₽</div>
                     <ul class="service-features">
                         <li>Бриф, планирование, концепция</li>
-                        <li>Прототипирование и UX/UI-дизайн</li>
-                        <li>Frontend, backend, API, админ-панель</li>
+                        <li>Прототипирование и дизайн интерфейса</li>
+                        <li>клиентская часть, серверная часть, интерфейс взаимодействия</li>
                         <li>Интеграция, аналитика, тестирование</li>
                     </ul>
                     <a href="#contacts" class="service-btn">Выбрать</a>
@@ -310,7 +310,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                         </svg>
                     </div>
                     <h3>Разработка веб-сайтов</h3>
-                    <p class="service-desc">Создадим сайты, которые продают: креативный дизайн, оптимизация под воронку, интеграции с рекламой и CRM.</p>
+                    <p class="service-desc">Создадим сайты, которые продают: креативный дизайн, оптимизация под воронку, интеграции с рекламой и системой управления клиентами.</p>
                     <div class="service-price">от 99 990₽</div>
                     <ul class="service-features">
                         <li>Бриф, планирование, концепция</li>
@@ -336,13 +336,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                         </svg>
                     </div>
                     <h3>Пакетные услуги</h3>
-                    <p class="service-desc">Комплексные решения «под ключ»: креативы, запуск рекламы, медиаплан и сквозная аналитика — быстрый старт и прозрачные KPI.</p>
+                    <p class="service-desc">Комплексные решения «под ключ»: креативы, запуск рекламы, план размещения и сквозная аналитика — быстрый старт и прозрачные показатели эффективности.</p>
                     <div class="service-price">от 29 990₽</div>
                     <ul class="service-features">
                         <li>Создание концепции, согласование</li>
                         <li>Креативный дизайн</li>
                         <li>Тесты, оптимизация</li>
-                        <li>Рост узнаваемости и реальных лидов</li>
+                        <li>Рост узнаваемости и реальных клиентов</li>
                     </ul>
                     <a href="#contacts" class="service-btn">Выбрать</a>
                 </div>

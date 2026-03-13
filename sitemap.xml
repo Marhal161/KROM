@@ -20,4 +20,17 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://krommarketing.ru/blog.php</loc>
+  </url>
+  <url>
+    <loc>https://krommarketing.ru/article-app-investment.php</loc>
+  </url>
+  <url>
+    <loc>https://krommarketing.ru/article-site-or-app.php</loc>
+  </url>
+  <url>
+    <loc>https://krommarketing.ru/app-development.php</loc>
+  </url>
+  
 </urlset>

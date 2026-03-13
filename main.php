@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
   <!-- SEO -->
   <title>KROM Marketing — маркетинговое и рекламное агентство в Москве: сайты и реклама</title>
   <meta name="description" content="KROM Marketing — маркетинговое и рекламное агентство в Москве. Разработка сайтов и веб-приложений, Telegram Ads, наружная реклама, электронная почта и SMS. Оставьте заявку — ответим в день обращения." />
-  <meta name="keywords" content="маркетинговое агентство, рекламное агентство, цифровое агентство, услуги маркетинга, рекламные услуги, комплексный маркетинг, продвижение бизнеса, лидогенерация, интернет реклама, Telegram Ads, реклама у блогеров, SMS рассылка, электронная почта маркетинг, наружная реклама, разработка сайтов, веб-приложения" />
+  <meta name="keywords" content="Маркетинговое агентство, рекламное агентство, цифровое агентство, услуги маркетинга, рекламные услуги, комплексный маркетинг, продвижение бизнеса, лидогенерация, интернет реклама, Telegram Ads, реклама у блогеров, SMS рассылка, электронная почта маркетинг, наружная реклама, разработка сайтов, веб-приложения" />
   <meta name="robots" content="index, follow" />
 
   <!-- Canonical -->
@@ -198,6 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                 <a href="#services" class="nav-link">Услуги</a>
                 <a href="#reviews" class="nav-link">Отзывы</a>
                 <a href="#contacts" class="nav-link">Контакты</a>
+                <a href="/blog.php" class="nav-link">Блог</a>
             </nav>
 
             <button class="menu-toggle" type="button" aria-label="Открыть меню">
@@ -227,7 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
     </header>
 
     <section class="gallery-carousel" aria-label="Фотогалерея">
-        <h1>Маркетинговое и рекламное агентство KROM Marketing в Москве</h1>
+        <h1 class="visually-hidden">Маркетинговое и рекламное агентство KROM Marketing в Москве</h1>
         <div class="carousel-viewport">
             <div class="carousel-track-wrapper">
                 <ul class="carousel-track">
@@ -285,7 +286,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                         </svg>
                     </div>
                     <h3>Разработка веб-приложений</h3>
-                    <p class="service-desc">Быстрый минимальный продукт за 48 часов, адаптивный дизайн, интеграции с CRM, рекламными кабинетами и аналитикой.</p>
+                    <p class="service-desc">Быстрый минимальный продукт за 48 часов, адаптивный дизайн, интеграции с системой управления клиентами, рекламными кабинетами и аналитикой.</p>
                     <div class="service-price">от 99 990₽</div>
                     <ul class="service-features">
                         <li>Бриф, планирование, концепция</li>
@@ -314,7 +315,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                     <div class="service-price">от 99 990₽</div>
                     <ul class="service-features">
                         <li>Бриф, планирование, концепция</li>
-                        <li>Прототипирование и UX/UI-дизайн</li>
+                        <li>Прототипирование и дизайн интерфейса</li>
                         <li>Верстка, адаптивность, интеграции</li>
                         <li>Аналитика, тестирование, поддержка</li>
                     </ul>
@@ -336,7 +337,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                         </svg>
                     </div>
                     <h3>Пакетные услуги</h3>
-                    <p class="service-desc">Комплексные решения «под ключ»: креативы, запуск рекламы, план размещения и сквозная аналитика — быстрый старт и прозрачные показатели эффективности.</p>
+                    <p class="service-desc">Комплексные решения «под ключ»: рекламные материалы, запуск рекламы, план размещения и сквозная аналитика — быстрый старт и прозрачные показатели эффективности.</p>
                     <div class="service-price">от 29 990₽</div>
                     <ul class="service-features">
                         <li>Создание концепции, согласование</li>
@@ -533,28 +534,82 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
                 <a href="media/policy.pdf" class="policy-btn">Читать</a>
             </div>
         </div>
-        <div class="policy-footer">
-            <div class="policy-meta">
-                <div class="footer-contacts">
-                    <p><strong>Контакты:</strong></p>
-                    <p>Телефон: <a href="tel:+79152564826">+7 915 256-48-26</a></p>
-                    <p>Email: <a href="mailto:info@krommarketing.ru">info@krommarketing.ru</a></p>
-                    <p>Адрес: 107143, г. Москва, ш. Открытое, д. 24, корп. 5В, кв. 14</p>
-                    <p>ИНН: 9718271067</p>
-                </div>
-                <div class="footer-links">
-                    <p><a href="#policy">Политика конфиденциальности</a></p>
-                    <p>© 2025 KROM Marketing. Все права защищены.</p>
-                </div>
-                <div class="policy-socials">
-                    <a href="https://vk.ru/krommarketing" aria-label="VK" target="_blank" rel="noopener">vk</a>
-                    <a href="https://t.me/krommarketing" aria-label="Telegram" target="_blank" rel="noopener">tg</a>
-                    <a href="https://wa.me/79152564826" aria-label="WhatsApp" target="_blank" rel="noopener">wa</a>
-                    <a href="https://www.youtube.com/channel/UC1jp1VNG1wv8Z4ym2JAeiTw" aria-label="YouTube" target="_blank" rel="noopener">yt</a>
+    </section>
+
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+
+            <!-- Колонка 1: логотип + описание -->
+            <div class="site-footer__brand">
+                <a href="/" class="site-footer__logo">
+                    <img src="media/logo_krom_gif.gif" alt="KROM Logo" class="site-footer__logo-img">
+                    <span class="site-footer__logo-text">КРОМ</span>
+                </a>
+                <p class="site-footer__tagline">Маркетинговое и рекламное агентство полного цикла в Москве.</p>
+                <div class="site-footer__socials">
+                    <!-- VK -->
+                    <a href="https://vk.ru/krommarketing" class="site-footer__social" aria-label="VK" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.547 7h-3.29a.743.743 0 0 0-.655.392s-1.312 2.416-1.77 3.654C14.626 8.095 14 7 14 7h-3.29a.743.743 0 0 0-.655.392L7.205 13.85C7.046 14.218 7 14.618 7 15v4h3v-4c0-.327.065-.622.187-.885.285-.624.944-1.115 1.813-1.115s1.528.491 1.813 1.115c.122.263.187.558.187.885v4h3v-4c0-.4-.054-.8-.213-1.15L14.64 9.59c.432-.942 1.359-2.59 1.359-2.59H18.5V15h3V7.5a.5.5 0 0 0-.5-.5h-.453z"/></svg>
+                    </a>
+                    <!-- Telegram -->
+                    <a href="https://t.me/krommarketing" class="site-footer__social" aria-label="Telegram" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    </a>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/79152564826" class="site-footer__social" aria-label="WhatsApp" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    </a>
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/channel/UC1jp1VNG1wv8Z4ym2JAeiTw" class="site-footer__social" aria-label="YouTube" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
                 </div>
             </div>
+
+            <!-- Колонка 2: навигация -->
+            <nav class="site-footer__nav" aria-label="Навигация в футере">
+                <h3 class="site-footer__col-title">Навигация</h3>
+                <ul class="site-footer__nav-list">
+                    <li><a href="#choose">О нас</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="services.php">Все услуги</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <!-- Колонка 3: контакты -->
+            <div class="site-footer__contacts">
+                <h3 class="site-footer__col-title">Контакты</h3>
+                <ul class="site-footer__contact-list">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <a href="tel:+79152564826">+7 915 256-48-26</a>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:info@krommarketing.ru">info@krommarketing.ru</a>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>107143, г. Москва,<br>ш. Открытое, д. 24, корп. 5В</span>
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        <span>ИНН: 9718271067</span>
+                    </li>
+                </ul>
+            </div>
+
         </div>
-    </section>
+
+        <!-- Нижняя полоска -->
+        <div class="site-footer__bottom">
+            <span class="site-footer__copy">© 2025 KROM Marketing. Все права защищены.</span>
+            <a href="#policy" class="site-footer__policy-link">Политика конфиденциальности</a>
+        </div>
+    </footer>
 
     <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Уведомление об использовании файлов cookie">
         <div class="cookie-banner__content">

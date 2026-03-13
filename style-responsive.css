@@ -149,13 +149,16 @@
         padding: 32px;
         z-index: 2000;
     }
-    .contact-icons {
-        flex-direction: column;
+     .contact-icons {
+        display: flex;
+        flex-direction: row;
         align-items: center;
-        padding: 0 24px;
-        gap: 0;
-        row-gap: 32px;
+        justify-content: space-around;
+        flex-wrap: nowrap;
         width: 100%;
+        padding: 0 12px;
+        gap: clamp(8px, 2vw, 18px);
+        overflow: hidden;
     }
     .contact-icon {
         width: 100%;
@@ -208,6 +211,7 @@
         flex: 0 0 82%;
         max-width: 82%;
         scroll-snap-align: center;
+        text-transform: uppercase;
     }
     .services-header h2 {
         font-size: 36px;

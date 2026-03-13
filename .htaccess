@@ -25,3 +25,20 @@ Options -Indexes
     Header set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
+
+# Обработка ошибок
+ErrorDocument 404 /404.php
+
+RewriteEngine On
+
+# Убираем www
+RewriteCond %{HTTP_HOST} ^www\.krommarketing\.ru$ [NC]
+RewriteRule ^(.*)$ https://krommarketing.ru/$1 [R=301,L]
+
+# Переводим http -> https
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://krommarketing.ru/$1 [R=301,L]
+
+# Главная main.php -> /
+RewriteCond %{THE_REQUEST} \s/+main\.php[\s?] [NC]
+RewriteRule ^main\.php$ https://krommarketing.ru/ [R=301,L]

@@ -1,0 +1,607 @@
+
+.article-hero--service,
+.service-hero {
+    position: relative;
+    padding: 100px 0 82px;
+    background:
+        radial-gradient(circle at 12% 18%, rgba(124,255,114,0.14), rgba(0,0,0,0) 30%),
+        radial-gradient(circle at 88% 22%, rgba(76,140,255,0.14), rgba(0,0,0,0) 28%),
+        linear-gradient(180deg, #050505 0%, #090909 100%);
+    border-bottom: 1px solid rgba(124,255,114,0.12);
+}
+
+.service-hero .article-hero__inner,
+.article-hero--service .article-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 430px);
+    gap: 34px;
+    align-items: center;
+}
+
+.service-hero__content {
+    min-width: 0;
+}
+
+.service-hero__content h1 {
+    max-width: 900px;
+    margin-bottom: 16px;
+}
+
+.service-hero__content p {
+    max-width: 760px;
+    margin-bottom: 0;
+}
+
+.service-hero__visual {
+    position: relative;
+    min-height: 360px;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(124,255,114,0.16);
+    background:
+        radial-gradient(circle at top, rgba(124,255,114,0.18), rgba(0,0,0,0) 38%),
+        linear-gradient(180deg, rgba(18,18,18,0.96), rgba(8,8,8,0.98));
+    box-shadow: 0 24px 50px rgba(0,0,0,0.38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-hero__visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    opacity: 0.95;
+}
+
+.service-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.service-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(124,255,114,0.18);
+    background: rgba(124,255,114,0.08);
+    color: #b8ffb2;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: .2px;
+}
+
+.service-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.service-kpi {
+    padding: 18px 18px 16px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.service-kpi strong {
+    display: block;
+    font-family: "Unbounded", sans-serif;
+    font-size: 18px;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.service-kpi span {
+    display: block;
+    color: rgba(255,255,255,0.72);
+    font-size: 14px;
+    line-height: 2.7;
+    padding-left: 5px;
+}
+
+/* Основные секции */
+
+.service-section {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 72px 32px;
+}
+
+.service-section--tight {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.service-section--topline {
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.service-section__head {
+    display: grid;
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+.service-section__eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #7cff72;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.service-section__title {
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.12;
+    margin: 0;
+}
+
+.service-section__lead {
+    color: rgba(255,255,255,0.78);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 760px;
+}
+
+/* Карточки */
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 20px;
+}
+
+.service-card {
+    padding: 24px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(18,18,18,0.98), rgba(8,8,8,0.98));
+    border: 1px solid rgba(124,255,114,0.12);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.28);
+    height: 100%;
+}
+
+.service-card h3 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.service-card p,
+.service-card li {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    line-height: 1.68;
+}
+
+.service-card ul {
+    padding-left: 20px;
+    margin-top: 12px;
+    display: grid;
+    gap: 10px;
+}
+
+/* Блоки выгод / причин */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 18px;
+}
+
+.benefit-item {
+    padding: 22px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.benefit-item h3 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.benefit-item p {
+    color: rgba(255,255,255,0.78);
+    line-height: 1.68;
+    font-size: 16px;
+}
+
+/* Этапы */
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 18px;
+}
+
+.process-step {
+    position: relative;
+    padding: 24px 24px 22px 78px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(18,18,18,0.98), rgba(8,8,8,0.98));
+    border: 1px solid rgba(124,255,114,0.12);
+}
+
+.process-step__num {
+    position: absolute;
+    left: 22px;
+    top: 22px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
+    color: #041607;
+    background: linear-gradient(135deg, #7cff72 0%, #57f46a 100%);
+    box-shadow: 0 10px 24px rgba(87,244,106,.24);
+}
+
+.process-step h3 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.process-step p {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Широкий акцентный блок */
+
+.service-highlight {
+    position: relative;
+    padding: 32px;
+    border-radius: 26px;
+    background:
+        radial-gradient(circle at top left, rgba(124,255,114,0.14), rgba(0,0,0,0) 34%),
+        linear-gradient(135deg, rgba(124,255,114,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(124,255,114,0.18);
+}
+
+.service-highlight h2,
+.service-highlight h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.service-highlight p,
+.service-highlight li {
+    color: rgba(255,255,255,0.82);
+    line-height: 1.72;
+    font-size: 17px;
+}
+
+.service-highlight ul {
+    padding-left: 22px;
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+/* Табличные блоки / списки */
+
+.service-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 20px;
+}
+
+.service-box {
+    padding: 24px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.service-box h3 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 21px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.service-box p,
+.service-box li {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    line-height: 1.68;
+}
+
+.service-box ul {
+    padding-left: 20px;
+    display: grid;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* CTA низ страницы */
+
+.service-cta {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 12px 32px 72px;
+}
+
+.service-cta__inner {
+    padding: 34px;
+    border-radius: 26px;
+    background:
+        radial-gradient(circle at right top, rgba(76,140,255,0.12), rgba(0,0,0,0) 26%),
+        linear-gradient(135deg, rgba(124,255,114,0.12), rgba(255,255,255,0.03));
+    border: 1px solid rgba(124,255,114,0.18);
+}
+
+.service-cta__inner h2 {
+    margin-bottom: 14px;
+}
+
+.service-cta__inner p {
+    color: rgba(255,255,255,0.82);
+    font-size: 17px;
+    line-height: 1.72;
+    max-width: 760px;
+}
+
+/* FAQ service-страницы чуть аккуратнее */
+
+.article-faq--service .article-faq__item {
+    background: linear-gradient(180deg, rgba(18,18,18,0.98), rgba(10,10,10,0.98));
+    border: 1px solid rgba(124,255,114,0.1);
+}
+
+.article-faq--service .article-faq__item h3 {
+    font-size: 20px;
+}
+
+/* Related posts для service-page */
+
+.related-posts--service {
+    padding-top: 0;
+    padding-bottom: 88px;
+}
+
+.related-posts--service .related-post {
+    background: linear-gradient(180deg, rgba(18,18,18,0.98), rgba(10,10,10,0.98));
+    border: 1px solid rgba(124,255,114,0.12);
+}
+
+/* Контактные иконки в hero-safe layout */
+
+.header .contact-icons {
+    position: relative;
+    z-index: 3;
+}
+
+/* Адаптив */
+
+@media (max-width: 1100px) {
+    .service-hero .article-hero__inner,
+    .article-hero--service .article-hero__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .service-hero__visual {
+        min-height: 300px;
+    }
+
+    .service-kpis {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .service-cards,
+    .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .service-section__head {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 900px) {
+    .process-steps,
+    .service-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-hero--service,
+    .service-hero {
+        padding: 64px 0 50px;
+    }
+
+    .service-section,
+    .service-cta {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .service-section {
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+
+    .service-cta {
+        padding-top: 8px;
+        padding-bottom: 56px;
+    }
+
+    .service-cta__inner,
+    .service-highlight,
+    .service-card,
+    .benefit-item,
+    .process-step,
+    .service-box {
+        padding: 22px;
+    }
+
+    .process-step {
+        padding-left: 72px;
+    }
+
+    .process-step__num {
+        left: 20px;
+        top: 20px;
+    }
+
+    .service-kpis,
+    .service-cards,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-hero__visual img,
+    .service-hero__visual {
+        min-height: 240px;
+    }
+
+    .service-section__lead,
+    .service-cta__inner p,
+    .service-highlight p,
+    .service-highlight li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-hero__badges {
+        gap: 8px;
+    }
+
+    .service-badge {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .service-kpi {
+        padding: 16px;
+    }
+
+    .service-kpi strong {
+        font-size: 16px;
+    }
+
+    .service-card h3,
+    .benefit-item h3,
+    .process-step h3,
+    .service-box h3 {
+        font-size: 18px;
+    }
+}
+.service-kpis--featured {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 10px;
+}
+
+.service-kpi--featured {
+    position: relative;
+    padding: 24px;
+    border-radius: 24px;
+    background:
+        linear-gradient(180deg, rgba(18,18,18,0.98), rgba(8,8,8,0.98));
+    border: 1px solid rgba(124,255,114,0.10);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.30);
+    overflow: hidden;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.service-kpi--featured::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(124,255,114,0.85), rgba(76,140,255,0.55));
+    opacity: .9;
+}
+
+.service-kpi--featured:hover {
+    transform: translateY(-6px);
+    border-color: rgba(124,255,114,0.28);
+    box-shadow: 0 24px 50px rgba(0,255,106,0.10);
+}
+
+.service-kpi__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.service-kpi__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(124,255,114,0.10);
+    border: 1px solid rgba(124,255,114,0.18);
+    color: #9dff96;
+    font-family: "Unbounded", sans-serif;
+    font-size: 13px;
+    line-height: 1;
+}
+
+.service-kpi__label {
+    color: rgba(255,255,255,0.55);
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.service-kpi--featured strong {
+    display: block;
+    margin-bottom: 12px;
+    font-family: "Unbounded", sans-serif;
+    font-size: 26px;
+    line-height: 1.15;
+    color: #fff;
+}
+
+.service-kpi--featured p {
+    margin: 0;
+    color: rgba(255,255,255,0.78);
+    font-size: 16px;
+    line-height: 1.68;
+}
+
+@media (max-width: 1100px) {
+    .service-kpis--featured {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .service-kpis--featured {
+        grid-template-columns: 1fr;
+    }
+
+    .service-kpi--featured strong {
+        font-size: 22px;
+    }
+}
